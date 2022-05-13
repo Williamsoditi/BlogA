@@ -1,0 +1,5 @@
+instance/
+*pyc
+.vscode/
+_pycache_/
+virtual/
