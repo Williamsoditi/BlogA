@@ -6,4 +6,4 @@ def four_Ow_four(error):
     '''
     Function to render the 404 error page on wrong input of URL
     '''
-    return render_template('four_Ow_four.html'),404
+    return render_template('fourOwfour.html'),404

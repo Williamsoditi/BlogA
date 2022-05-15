@@ -133,3 +133,21 @@ class Quote:
         self.quote = quote
         self.permalink = permalink
 
+class Downvote(db.Model):
+    
+    _tablename_ = 'downvotes'
+
+    id = db.Column(db.Integer, primary_key=True)
+    blog_id = db.Column(db.Integer, db.ForeignKey('blogs.id'))
+
+    def save(self):
+        db.session.add(self)
+        db.session.commit()
+
+    @classmethod
+    def get_downvotes(cls, id):
+        downvote = Downvote.query.filter_by(blog_id=id).all()
+        return downvote
+
+    def _repr_(self):
+        return f'{self.blog_id}'
