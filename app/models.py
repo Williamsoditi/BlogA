@@ -36,3 +36,91 @@ class User(UserMixin,db.Model):
     def __repr__(self):
         return f'User {self.username}'
 
+class Role(db.Model):
+
+    __tablename__ = 'roles'
+
+    id = db.Column(db.Integer,primary_key = True)
+    name = db.Column(db.String(255))
+    users = db.relationship('User',backref = 'role',lazy="dynamic")
+
+    def __repr__(self):
+        return f'User {self.name}'
+
+class Upvote(db.Model):
+    _tablename_ = 'upvotes'
+
+    id = db.Column(db.Integer, primary_key=True)
+    blog_id = db.Column(db.Integer, db.ForeignKey('blogs.id'))
+
+    def save(self):
+        db.session.add(self)
+        db.session.commit()
+
+    @classmethod
+    def get_upvotes(cls, id):
+        upvote = Upvote.query.filter_by(blog_id=id).all()
+        return upvote
+
+    def _repr_(self):
+        return f'{self.blog_id}'
+
+class Delete(db.Model):
+
+    __tablename__ = 'delete'
+    id = db.Column(db.Integer,primary_key = True)
+    blog_id = db.Column(db.Integer,db.ForeignKey('blogs.id'))
+
+    def save(self):
+        db.session.add(self)
+        db.session.commit()
+
+    @classmethod
+    def get_deletes(cls,id):
+        delete = Delete.query.filter_by(blog_id=id).all()
+        return delete
+
+    def _repr_(self):
+        return f'{self.blog_id}'
+
+class Blog(db.Model):
+    
+    __tablename__ = 'blogs'
+
+    id = db.Column(db.Integer,primary_key=True)
+    category = db.Column(db.String)
+    context = db.Column(db.String)
+    posted = db.Column(db.DateTime,default=datetime.utcnow)
+    upvote = db.relationship('Upvote',backref='post',lazy='dynamic')
+    downvote = db.relationship('Downvote',backref='post',lazy='dynamic')
+    comment = db.relationship('Comment',backref='post',lazy='dynamic')
+    delete = db.relationship('Delete',backref = 'post',lazy='dynamic')
+ 
+    def save_blog(self):
+        db.session.add(self)
+        db.session.commit()
+
+    def _repr_(self):
+        return f'Blog{self.category}'
+
+class Comment(db.Model):
+
+    __tablename__ = 'comments'
+
+    id = db.Column(db.Integer, primary_key = True)
+    comment = db.Column(db.Text(),nullable = False)
+    blog_id = db.Column(db.Integer,db.ForeignKey('blogs.id'))
+
+    def save_comment(self):
+        db.session.add(self)
+        db.session.commit()
+
+    @classmethod
+    def get_comments(cls,blog_id):
+        comments = Comment.query.filter_by(blog_id = blog_id).all()
+
+        return comments
+
+    def __repr__(self):
+        return f'comment:{self.comment}'
+
