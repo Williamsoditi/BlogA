@@ -131,10 +131,10 @@ class Quote:
     def __init__(self, author, quote, permalink) :
         self.author = author
         self.quote = quote
-        self.permalink = permalink
+        # self.permalink = permalink
 
 class Downvote(db.Model):
-    
+
     _tablename_ = 'downvotes'
 
     id = db.Column(db.Integer, primary_key=True)

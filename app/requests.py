@@ -8,5 +8,5 @@ def get_quote():
     '''
     Function to return random quotes from API
     '''
-    random_quote = Quote(response.get('quote'), response.get('author'), response.get('permalink'))
     response = requests.get(url).json()
+    random_quote = Quote(response.get('quote'), response.get('author'))

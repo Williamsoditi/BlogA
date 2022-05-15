@@ -20,16 +20,16 @@
         {% block content %}
         <!-- REQUEST FROM QUOTE API -->
         <div class="card">
-            <div class="card-header"><strong>
-                Quote
-            </strong>
+            <div class="card-header">
+                <h3 class="text-center"><strong>Quote</strong></h3>
             </div>
             <div class="card-body">
               <blockquote class="blockquote mb-0">
-                <p>{{ quotes.quote }}</p>
-                <p><a href="">Permalink</a>{{ quotes.permalink }}</p>
-                <footer class="blockquote-footer"> Written by:{{ quotes.author }}</cite></footer>
-              </blockquote><hr>
+                <p>{{ quote.quote }}</p>
+                <!-- <a href="">{{ quotes.permalink }} Link</a> -->
+                <footer class="blockquote-footer">{{ quotes.author }}</cite></footer>
+              </blockquote>
+              <hr>
             </div>
         </div>
         <div class="container-fluid">
