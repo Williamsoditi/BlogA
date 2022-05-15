@@ -1,0 +1,52 @@
+{% extends 'bootstrap/base.html'%}
+{% import 'macros.html' as macros %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        {% if title %}
+        <title> {{ title }}</title>
+        {% else %}
+        <title>1 Min Of You</title>
+        {% endif %}
+    </head>
+    <header>
+       <!--Navbar-->  
+        {% block navbar %}
+        {% include 'navbar.html' %}
+        {% endblock %}  
+    </header>
+    <body>
+        {% block content %}
+        <div class="card">
+            <div class="card-header"><strong>
+                Quote
+            </strong>
+            </div>
+            <div class="card-body">
+              <blockquote class="blockquote mb-0">
+                <p>{{ quotes.quote }}</p>
+                <footer class="blockquote-footer">{{ quotes.author }}</cite></footer>
+              </blockquote><hr>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <h2 class="text-center"><u>Subscribed user blogs</u></h2>
+            {% for blog in blogs %}
+                <div class = "col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class = "card-title">Category : {{ blog.category }}</h3>
+                            <h4 class = "card-text"> {{ blog.context }}</h4>
+                            <p class = "card-text">Posted On:{{ blog.posted.strftime('%Y-%m-%d') }}</p>
+                            <a class =" btn btn-warning" href="{{ url_for('main.comment', blog_id = blogs.id)}}">Comments:{{blog.comment.count()}}</a>
+                            <a class =" btn btn-warning" href="{{url_for('main.like',id = blog.id)}}">Likes:{{blog.upvote.count()}}</a>
+                            <a class =" btn btn-danger" href="{{url_for('main.dislike',id = blog.id)}}">Dislikes:{{blog.downvote.count()}}</a>
+                            <a class =" btn btn-danger" href="{{url_for('main.delete',id = blog.id)}}">Delete</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        {%endblock%}
+    </body>

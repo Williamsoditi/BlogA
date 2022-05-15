@@ -1,0 +1,23 @@
+{% extends 'bootstrap/base.html'%}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        {% if title %}
+        <title> BlogA - {{ title }}</title>
+        {% else %}
+        <title>BlogA</title>
+        {% endif %}
+    </head>
+    <header>
+        <!--Navbar block-->  
+        {% block navbar %}
+        {% include 'navbar.html' %}
+        {% endblock %}  
+    </header>
+    <body>
+        {% block content%}
+        
+        {%endblock%}
+    </body>
