@@ -18,6 +18,7 @@
     </header>
     <body>
         {% block content %}
+        <!-- REQUEST FROM QUOTE API -->
         <div class="card">
             <div class="card-header"><strong>
                 Quote
@@ -26,7 +27,8 @@
             <div class="card-body">
               <blockquote class="blockquote mb-0">
                 <p>{{ quotes.quote }}</p>
-                <footer class="blockquote-footer">{{ quotes.author }}</cite></footer>
+                <p><a href="">Permalink</a>{{ quotes.permalink }}</p>
+                <footer class="blockquote-footer"> Written by:{{ quotes.author }}</cite></footer>
               </blockquote><hr>
             </div>
         </div>
