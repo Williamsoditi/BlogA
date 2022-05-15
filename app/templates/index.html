@@ -25,7 +25,7 @@
             </div>
             <div class="card-body">
               <blockquote class="blockquote mb-0">
-                <p>{{ quote.quote }}</p>
+                <p>{{ quotes.quote }}</p>
                 <!-- <a href="">{{ quotes.permalink }} Link</a> -->
                 <footer class="blockquote-footer">{{ quotes.author }}</cite></footer>
               </blockquote>
@@ -50,5 +50,13 @@
                 </div>
             {% endfor %}
         </div>
-        {%endblock%}
+        <!-- <footer>
+            FOOTER BLOCK
+            {% block footer %}
+            {% include 'footer.html' %}
+            {% endblock %}
+        </footer> -->
     </body>
+
+    {%endblock%}
+</html>
