@@ -17,7 +17,7 @@ def index():
     quotes = get_quote
     blogs = Blog.query.all()
 
-    return render_template('index.html', blogs = blogs, quotes = quotes, user = user, title = title)
+    return render_template ('index.html',title=title,blogs=blogs,quotes=quotes,user=user)
 
 @main.route('/user/<name>')
 def profile(name):

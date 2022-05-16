@@ -32,18 +32,19 @@
               <hr>
             </div>
         </div>
-        <div class="container-fluid">
-            <h2 class="text-center"><u>Subscribed user blogs</u></h2>
+        <div class="container text-center">
+            <h2><u>Subscribed user blogs</u></h2>
+            <p class="display-6">Our users have an extra dipping to our application.<br>Please &nbsp;<a href="/authenticate/login">sign-up</a>&nbsp;for more features</p>
             {% for blog in blogs %}
                 <div class = "col-md-6">
                     <div class="card">
                         <div class="card-body">
                             <h3 class = "card-title">Category : {{ blog.category }}</h3>
-                            <h4 class = "card-text"> {{ blog.context }}</h4>
-                            <p class = "card-text">Posted On:{{ blog.posted.strftime('%Y-%m-%d') }}</p>
-                            <a class =" btn btn-warning" href="{{ url_for('main.comment', blog_id = blogs.id)}}">Comments:{{blog.comment.count()}}</a>
-                            <a class =" btn btn-warning" href="{{url_for('main.like',id = blog.id)}}">Likes:{{blog.upvote.count()}}</a>
-                            <a class =" btn btn-danger" href="{{url_for('main.dislike',id = blog.id)}}">Dislikes:{{blog.downvote.count()}}</a>
+                            <p class = "card-text text-center"> {{ blog.context }}</p>
+                            <p class = "card-text">Inception Date:{{ blog.posted.strftime('%Y-%m-%d') }}</p>
+                            <a class =" btn btn-success" href="{{ url_for('main.comment', blog_id = blog.id)}}">Comments:{{blog.comment.count()}}</a>
+                            <a class =" btn btn-primary" href="{{url_for('main.like',id = blog.id)}}">Upvote:{{blog.upvote.count()}}</a>
+                            <a class =" btn btn-warning" href="{{url_for('main.dislike',id = blog.id)}}">Downvote:{{blog.downvote.count()}}</a>
                             <a class =" btn btn-danger" href="{{url_for('main.delete',id = blog.id)}}">Delete</a>
                         </div>
                     </div>

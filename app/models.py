@@ -84,7 +84,7 @@ class Delete(db.Model):
         return f'{self.blog_id}'
 
 class Blog(db.Model):
-    
+
     __tablename__ = 'blogs'
 
     id = db.Column(db.Integer,primary_key=True)
@@ -104,7 +104,7 @@ class Blog(db.Model):
         return f'Blog{self.category}'
 
 class Comment(db.Model):
-
+    
     __tablename__ = 'comments'
 
     id = db.Column(db.Integer, primary_key = True)
@@ -124,15 +124,7 @@ class Comment(db.Model):
     def __repr__(self):
         return f'comment:{self.comment}'
 
-class Quote:
-    '''
-    Class that returns quotes requested from the quote API
-    '''
-    def __init__(self, author, quote, permalink) :
-        self.author = author
-        self.quote = quote
-        # self.permalink = permalink
-
+        
 class Downvote(db.Model):
 
     _tablename_ = 'downvotes'
@@ -151,3 +143,12 @@ class Downvote(db.Model):
 
     def _repr_(self):
         return f'{self.blog_id}'
+
+class Quote:
+    '''
+    Class that returns quotes requested from the quote API
+    '''
+    def __init__(self, author, quote):
+        self.author = author
+        self.quote = quote
+
