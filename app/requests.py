@@ -1,4 +1,3 @@
-from urllib import response
 import requests
 from .models import Quote
 
@@ -10,3 +9,5 @@ def get_quote():
     '''
     response = requests.get(url).json()
     random_quote = Quote(response.get('quote'), response.get('author'))
+
+    return random_quote

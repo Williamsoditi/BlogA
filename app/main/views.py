@@ -67,7 +67,7 @@ def new_blog():
         category = form.category.data
         context = form.context.data
         new_blog = Blog(category=category,context=context)
-        #Adding new blog
+        
         db.session.add(new_blog)
         db.session.commit()
         return redirect(url_for('main.index'))
