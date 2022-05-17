@@ -10,7 +10,7 @@
 ## Description
 *BlogA* is a personal blogging website where a user can create and share opinions and other users can create and comment on them.<br>
 Also implemented within is a feature that displays rando quotes to inspire users.<br>
-The following is a live link to the project: [Live link]()
+The following is a live link to the project: [Live link](https://oditi-bloggs.herokuapp.com/)
 ## Installation process
 To access my repository link:
 [Click here](https://github.com/Williamsoditi/Pitch-ME.git)
