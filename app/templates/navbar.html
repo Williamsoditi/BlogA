@@ -1,4 +1,4 @@
-<div class="navbar navbar-inverse sticky-top" role="navigation">
+<nav class="navbar navbar-inverse" role="navigation bg-success">
     <div class="container-fluid">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -15,15 +15,14 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 {% if current_user.is_authenticated %}
-                <li><a href="{{url_for('main.profile',name=current_user.username)}}">Profile</a></li>
+                <li><a href="{{url_for('main.profile',name=current_user.username)}}"><span class="glyphicon glyphicon-user"></span>&nbsp;Profile</a></li>
+                <li><a href="{{url_for('main.new_blog')}}"><span class="glyphicon glyphicon-envelope">&nbsp;New-Blog</span></a></li>
                 <li><a href="{{url_for('auth.logout')}}">Sign out</a></li>
-                <li><a href="{{url_for('main.new_blog')}}">Start New Blog</a></li>
                 {% else %}
-                <li><a href="{{url_for('auth.login')}}">Sign in</a></li>
+                <li><a href="{{url_for('auth.login')}}"><span class="glyphicon glyphicon-log-in">&nbsp;Sign-in</span></a></li>
                 {%endif%}
             </ul>
         </div>
     </div>
-</div>
+</nav>
 
-  

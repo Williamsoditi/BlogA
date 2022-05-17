@@ -2,23 +2,26 @@
 {% import 'bootstrap/wtf.html' as wtf%}
 
 {% block content %}
-<div class="container"> 
-  <div class="row">
-    <div class= "col-md-2"> </div>
-    <div class="col-md-8">
-    <!--Flash message -->
-    {% for message in get_flashed_messages() %}
-      <div class="alert alert-danger">
-      <button type="button" class="close" data-dismiss="alert">&times;</button>
-      {{ message }}
+<div class="container">
+  <div class="container"> 
+    <div class="row">
+      <div class= "col-md-6">
+        <img src="{{url_for('static', filename='assets/signup.png')}}" class="img-responsive img-rounded"/>
       </div>
-    {% endfor %}
-    <!-- Login form -->
-    {{wtf.quick_form(login_form)}}
-    <p> Don't have an account? <a href="{{url_for('auth.signup')}}">Sign up here</a></p>
-   </div>
-   <div clas="col-md-2"> </div>
-  </div>
+      <div class="col-md-6">
+      <!--Flash message -->
+      {% for message in get_flashed_messages() %}
+        <div class="alert alert-danger">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{ message }}
+        </div>
+      {% endfor %}
+      <!-- Login form -->
+      <h4 class="text-center"><u>Please enter your account credentials</u></h4>
+      {{wtf.quick_form(login_form)}}
+      <p> Don't have an account? <a href="{{url_for('auth.signup')}}">Sign up here</a></p>
+     </div>
+    </div>
 </div>
 <footer class="mt-5">
   <!-- FOOTER BLOCK -->
@@ -28,4 +31,5 @@
 </footer>
 
 {% endblock%}
+</div>
 

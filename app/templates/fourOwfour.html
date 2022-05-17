@@ -2,10 +2,13 @@
 {% block content %}
 
 <div class="row">
-    <div class="col-xs-12">
+    <div class="col-sm-6">
+        <img src="{{url_for('static', filename='assets/404.png')}}" class="img-rounded img-responsive" alt="landing-img">
+    </div>
+    <div class="col-sm-6">
         <div class="text-center">
             <h1>404 Error</h1>
-            <h1>Page Not Found</h1>
+            <p>We could not find what you were looking for</p>
             <a href="/">Go back to home Page</a>
         </div>
     </div>

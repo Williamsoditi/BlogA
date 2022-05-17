@@ -18,18 +18,20 @@
     </header>
     <body>
         {% block content %}
+        {% block landing %}
+        {% include 'landing.html'%}
+        {%endblock%}
         <!-- REQUEST FROM QUOTE API -->
         <div class="card">
             <div class="card-header">
                 <h3 class="text-center"><strong>Quote</strong></h3>
             </div>
             <div class="card-body">
-              <blockquote class="blockquote mb-0">
-                <p>{{ quotes.quote }}</p>
-                <!-- <a href="">{{ quotes.permalink }} Link</a> -->
-                <footer class="blockquote-footer">{{ quotes.author }}</cite></footer>
-              </blockquote>
-              <hr>
+                <blockquote class="blockquote-reverse">
+                    <p>{{ quotes.quote }}</p>
+                    <footer>{{ quotes.author }}</footer>
+                </blockquote>
+            <hr>
             </div>
         </div>
         <div class="container text-center">
@@ -39,13 +41,13 @@
                 <div class = "col-md-6">
                     <div class="card">
                         <div class="card-body">
-                            <h3 class = "card-title">Category : {{ blog.category }}</h3>
+                            <h3 class = "card-title">Blog-type : {{ blog.category }}</h3>
                             <p class = "card-text text-center"> {{ blog.context }}</p>
-                            <p class = "card-text">Inception Date:{{ blog.posted.strftime('%Y-%m-%d') }}</p>
-                            <a class =" btn btn-success" href="{{ url_for('main.comment', blog_id = blog.id)}}">Comments:{{blog.comment.count()}}</a>
-                            <a class =" btn btn-primary" href="{{url_for('main.like',id = blog.id)}}">Upvote:{{blog.upvote.count()}}</a>
-                            <a class =" btn btn-warning" href="{{url_for('main.dislike',id = blog.id)}}">Downvote:{{blog.downvote.count()}}</a>
-                            <a class =" btn btn-danger" href="{{url_for('main.delete',id = blog.id)}}">Delete</a>
+                            <p class = "card-text">Inception Date:&nbsp;{{ blog.posted.strftime('%Y-%m-%d') }}</p>
+                            <a class =" btn btn-sm btn-success" href="{{ url_for('main.comment', blog_id = blog.id)}}">Comments:{{blog.comment.count()}}</a>
+                            <a class =" btn btn-sm btn-primary" href="{{url_for('main.like',id = blog.id)}}">Upvote:{{blog.upvote.count()}}</a>
+                            <a class =" btn btn-sm btn-warning" href="{{url_for('main.dislike',id = blog.id)}}">Downvote:{{blog.downvote.count()}}</a>
+                            <a class =" btn btn-sm btn-danger" href="{{url_for('main.delete',id = blog.id)}}">Delete</a>
                         </div>
                     </div>
                 </div>
