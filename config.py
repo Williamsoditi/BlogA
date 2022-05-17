@@ -50,7 +50,6 @@ class TestConfig(Config):
     '''
 SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL').replace("://", "ql://", 1)
 
-DEBUG = True
 
 
 class DevConfig(Config):
@@ -61,7 +60,6 @@ class DevConfig(Config):
     '''
 SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL').replace("://", "ql://", 1)
 
-DEBUG = True
 
 config_options = {
 'development':DevConfig,
