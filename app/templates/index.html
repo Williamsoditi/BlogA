@@ -9,6 +9,10 @@
         {% else %}
         <title> Blog - A </title>
         {% endif %}
+        {% block styles%}
+            {{ super() }}
+        <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+        {% endblock %}
     </head>
     <header>
        <!--Navbar-->  
@@ -53,12 +57,11 @@
                 </div>
             {% endfor %}
         </div>
-        <footer>
-            <!-- FOOTER BLOCK -->
+        <!-- <footer>
             {% block footer %}
             {% include 'footer.html' %}
             {% endblock %}
-        </footer>
+        </footer> -->
     </body>
     {%endblock%}
 </html>

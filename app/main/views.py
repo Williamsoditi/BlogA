@@ -14,7 +14,7 @@ def index():
     '''
     title = 'BlogA'
     user = User.query.all()
-    quotes = get_quote
+    quotes = get_quote()
     blogs = Blog.query.all()
 
     return render_template ('index.html',title=title,blogs=blogs,quotes=quotes,user=user)

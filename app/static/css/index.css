@@ -1,11 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200;1,300;1,400&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,100;1,300;1,400;1,500;1,900&display=swap');
 
-p{
+p, a, h1{
     font-family: 'Montserrat', sans-serif;
 }
-h3, li, h1, h4{
+h3, li, h4, h2{
     font-family: 'Roboto', sans-serif;
 }
 footer{
     margin-top: -50px;
+}
+#welcome-text{
+    margin-top: -200px;
+    /* font-family: 'Montserrat', sans-serif; */
+    font-size: 80px;
 }

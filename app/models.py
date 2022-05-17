@@ -152,3 +152,4 @@ class Quote:
         self.author = author
         self.quote = quote
 
+
