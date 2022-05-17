@@ -25,21 +25,8 @@
         {% block landing %}
         {% include 'landing.html'%}
         {%endblock%}
-        <!-- REQUEST FROM QUOTE API -->
-        <div class="card">
-            <div class="card-header">
-                <h3 class="text-center"><strong>Quote</strong></h3>
-            </div>
-            <div class="card-body">
-                <blockquote class="blockquote-reverse">
-                    <p>{{ quotes.quote }}</p>
-                    <footer>{{ quotes.author }}</footer>
-                </blockquote>
-            <hr>
-            </div>
-        </div>
         <div class="container text-center">
-            <h2><u>Subscribed user blogs</u></h2>
+            <h2>Subscribed user blogs</h2>
             <p class="display-6">Our users have an extra dipping to our application.<br>Please &nbsp;<a href="/authenticate/login">sign-up</a>&nbsp;for more features</p>
             {% for blog in blogs %}
                 <div class = "col-md-6">
@@ -57,11 +44,19 @@
                 </div>
             {% endfor %}
         </div>
-        <!-- <footer>
-            {% block footer %}
-            {% include 'footer.html' %}
-            {% endblock %}
-        </footer> -->
+        <!-- REQUEST FROM QUOTE API -->
+        <div class="card">
+            <div class="card-header">
+                <h3 class="text-center">Quote</h3>
+                <p class="text-center display-4"><marquee behavior="scroll" direction=""></marquee>Some random quotes to keep you refreshed</p>
+            </div>
+            <div class="card-body">
+                <blockquote class="blockquote-reverse">
+                    <p>{{ quotes.quote }}</p>
+                    <footer>{{ quotes.author }}</footer>
+                </blockquote>
+            </div>
+        </div>
     </body>
     {%endblock%}
 </html>
